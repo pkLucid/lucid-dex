@@ -43219,7 +43219,7 @@ exports.BattlePokedex = {
         "name": "Tapu Bulu",
         "heightm": 1.9,
         "weightkg": 45.5,
-        "tier": "unobtainable"
+        "tier": "obtainable"
     },
     "tapufini": {
         "num": 788,
