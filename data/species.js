@@ -6985,7 +6985,7 @@ exports.BattlePokedex = {
         "evos": [
             "Electrode"
         ],
-        "tier": "unobtainable"
+        "tier": "obtainable"
     },
     "electrode": {
         "num": 101,
@@ -24016,7 +24016,6 @@ exports.BattlePokedex = {
         "name": "Wormadam",
         "heightm": 0.5,
         "weightkg": 6.5,
-        "baseForme": "Plant",
         "formeOrder": [
             "Wormadam",
             "Wormadam-Sandy",
@@ -30937,9 +30936,8 @@ exports.BattlePokedex = {
         "heightm": 1.6,
         "weightkg": 66.6,
         "prevo": "Yamask-Galar",
-        "evoItem": "Dusk Stone",
-        "evoType": "useItem",
-        "evoCondition": "",
+        "evoType": "other",
+        "evoCondition": "take 49 or more damage and walk under stone sculpture in Dusty Bowl",
         "tier": "obtainable"
     },
     "tirtouga": {
@@ -43185,7 +43183,7 @@ exports.BattlePokedex = {
         "name": "Tapu Lele",
         "heightm": 1.2,
         "weightkg": 18.6,
-        "tier": "unobtainable"
+        "tier": "obtainable"
     },
     "tapubulu": {
         "num": 787,
