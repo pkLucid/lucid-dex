@@ -398,7 +398,7 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
       $entries
         .eq(4 * i + 0)
         .text(
-          stat === "hp" ? "" : this.getStat(baseStat, false, level, 0, 0, 0.9),
+          stat === "hp" ? "" : this.getStat(baseStat, false, level, 0, 0, 0.9)
         );
       $entries
         .eq(4 * i + 1)
@@ -406,14 +406,14 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
       $entries
         .eq(4 * i + 2)
         .text(
-          this.getStat(baseStat, stat === "hp", level, highIV, highEV, 1.0),
+          this.getStat(baseStat, stat === "hp", level, highIV, highEV, 1.0)
         );
       $entries
         .eq(4 * i + 3)
         .text(
           stat === "hp"
             ? ""
-            : this.getStat(baseStat, false, level, highIV, highEV, 1.1),
+            : this.getStat(baseStat, false, level, highIV, highEV, 1.1)
         );
       i++;
     }
@@ -474,7 +474,7 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
       learnset = $.extend(
         {},
         learnset,
-        BattleLearnsets[toID(pokemon.changesFrom)].learnset,
+        BattleLearnsets[toID(pokemon.changesFrom)].learnset
       );
     }
 
@@ -557,7 +557,7 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
             if (source.substr(0, 2) === mostRecentGen + "L") {
               if (shownMoves[moveid] & 2) continue;
               moves.push(
-                "b" + source.substr(2).padStart(3, "0") + " " + moveid,
+                "b" + source.substr(2).padStart(3, "0") + " " + moveid
               );
               shownMoves[moveid] = shownMoves[moveid] | 2;
             } else if (source === mostRecentGen + "E") {
@@ -598,8 +598,8 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
               moves[i].substr(1, 3) === "001"
                 ? "&ndash;"
                 : moves[i].substr(1, 3) === "000"
-                  ? "Evo."
-                  : "<small>L</small>" + (Number(moves[i].substr(1, 3)) || "?");
+                ? "Evo."
+                : "<small>L</small>" + (Number(moves[i].substr(1, 3)) || "?");
             break;
           case "b": // prevo1 level-up move
             if (lastChanged)
@@ -917,6 +917,7 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
 
     let isInZone = function (location, enc_mode, pokemon) {
       let for_mode = location[enc_mode];
+
       if (!("encs" in for_mode)) {
         return 0;
       }
@@ -926,7 +927,12 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
         let slot = for_mode["encs"][i];
         let species = slot["species"];
         if (species === pokemon) {
-          sum_rate += rates[enc_mode][i];
+          if (enc_mode === "fish") {
+            // since rates are specific to super rod for fishing, change mapping
+            sum_rate += rates[enc_mode]["super"][i];
+          } else {
+            sum_rate += rates[enc_mode][i];
+          }
         }
       }
 
@@ -1037,18 +1043,18 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
       if (baseStat === 1) return 1;
       return Math.floor(
         (Math.floor(
-          2 * baseStat + (iv || 0) + Math.floor((ev || 0) / 4) + 100,
+          2 * baseStat + (iv || 0) + Math.floor((ev || 0) / 4) + 100
         ) *
           level) /
           100 +
-          10,
+          10
       );
     }
     var val = Math.floor(
       (Math.floor(2 * baseStat + (iv || 0) + Math.floor((ev || 0) / 4)) *
         level) /
         100 +
-        5,
+        5
     );
     if (natureMult && !isHP) val *= natureMult;
     return Math.floor(val);
