@@ -26,7 +26,7 @@ var PokedexSearchPanel = Panels.Panel.extend({
     var buf = '<div class="pfx-body"><form class="pokedex">';
     buf += '<h1><a href="/" data-target="replace">Pok&eacute;dex</a></h1>';
     buf +=
-      '<h4>Pokemon Lucid <a href="https://pklucid.github.io/Pokemon-Lucid/src/download.html"target="_blank">Latest Version 1.2.6</a></h3>';
+      '<h4>Pokemon Lucid <a href="https://pklucid.github.io/Pokemon-Lucid/src/download.html"target="_blank">Latest Version 1.2.7</a></h3>';
     buf +=
       '<h4>Modified from <a href="https://dex.pokemonshowdown.com/">Pok&eacute;mon Showdown Dex</a> for Porydex</h3>';
     buf +=
